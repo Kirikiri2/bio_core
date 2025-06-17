@@ -1,0 +1,56 @@
+{% extends "bio_core_website/base.html" %}
+
+{% block title %}{{ element.name }} | BioCore{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        {% if element.image %}
+        <img src="{{ element.image.url }}" class="img-fluid rounded mb-3" alt="{{ element.name }}">
+        {% endif %}
+        
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Информация</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Категория:</strong> {{ element.category.name }}
+                </li>
+                {% if element.manufacturer %}
+                <li class="list-group-item">
+                    <strong>Производитель:</strong> {{ element.manufacturer.name }}
+                    {% if element.manufacturer.country %}
+                    ({{ element.manufacturer.country }})
+                    {% endif %}
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <h1>{{ element.name }}</h1>
+        
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Описание</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ element.description }}</p>
+            </div>
+        </div>
+        
+        {% if element.usage %}
+        <div class="card">
+            <div class="card-header">
+                <h5>Способ применения</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ element.usage }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

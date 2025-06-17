@@ -1,0 +1,27 @@
+{% extends "bio_core_website/base.html" %}
+
+{% block title %}Главная страница | BioCore{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="mb-4">Категории элементов</h1>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <a href="{% url 'bio_core_website:category_elements' category.id %}" 
+                           class="btn btn-primary mt-2">
+                            Просмотреть элементы
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
