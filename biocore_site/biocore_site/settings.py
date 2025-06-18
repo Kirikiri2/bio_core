@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bio_core_website',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,3 +128,8 @@ STATICFILES_DIRS = [BASE_DIR / 'bio_core_website/static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'bio_core_website.CustomUser'
 APPEND_SLASH = True
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+LOGIN_REDIRECT_URL = 'bio_core_website:home'
+LOGOUT_REDIRECT_URL = 'bio_core_website:home'
+LOGIN_URL = 'users:login'
