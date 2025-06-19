@@ -1,7 +1,21 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'TT Travels Next Trl', sans-serif;
     background-color: #000;
     color: #fff;
+}
+@font-face {
+    font-family: 'TT Travels Next Trl';
+    src: url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Regular.woff2" %}') format('woff2'),
+         url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Regular.woff" %}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TT Travels Next Trl';
+    src: url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Bold.woff2" %}') format('woff2'),
+         url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Bold.woff" %}') format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
 .navbar-dark .navbar-brand {
@@ -15,8 +29,36 @@ body {
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #c2a98c;
     /* Beige color from the design */
+    background-color: transparent; /* Убираем фон */
 }
 
+.navbar-dark .navbar-brand,
+.navbar .nav-link {
+    font-family: 'TT Travels Next Trl', Arial, sans-serif;
+}
+
+/* Стили для кнопок Вход и Регистрация */
+.navbar .nav-link {
+    
+    color: #fff;
+    padding: 0.4rem 1rem;
+    margin-left: 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    background-color: #c2a98c;
+    color: #000;
+}
+
+.logo img {
+    width: 50px;
+    height: 30px;
+    vertical-align: middle;
+}
 
 
 .navbar-dark .navbar-brand {
@@ -123,7 +165,7 @@ body {
 }
 
 .footer-logo img {
-    width: 30px;
+    width: 50px;
     height: 30px;
     margin-right: 10px;
 }
