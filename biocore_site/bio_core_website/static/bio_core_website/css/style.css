@@ -26,6 +26,12 @@ body {
 
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
+    padding: 0px 0px 0px 10px;
+    margin-left: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -38,6 +44,38 @@ body {
 .navbar-dark .navbar-brand,
 .navbar .nav-link {
     font-family: 'TT Travels Next Trl', Arial, sans-serif;
+}
+
+.navbar .nav-link.btn-login,
+.navbar .nav-link.btn-register {
+
+    color: #faf8f8;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 1px 0px 0px 1px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.navbar .nav-link.btn-login:hover,
+.navbar .nav-link.btn-register:hover {
+    background-color: #d4b796;
+    color: #000;
+}
+
+.btn-outline-light {
+    border-color: #000;
+    background-color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form {
+    padding: 20px 0px 0px 0px;
+}
+
+.navbar-expand-lg .navbar-nav {
+    padding: 0px 30px 0px 0px;
 }
 
 /* Стили для кнопок Вход и Регистрация */
@@ -58,11 +96,19 @@ body {
 }
 
 .logo img {
-    width: 50px;
+    width: 60px;
     height: 30px;
     vertical-align: middle;
 }
 
+.logo {
+    padding: 0px 0px 0px 0px;
+}
+
+.text-white {
+    text-decoration: none;
+
+}
 
 .navbar-dark .navbar-brand {
     color: #fff;
@@ -104,12 +150,12 @@ body {
     max-width: 50%;
 }
 
-.cta-section-text h2 {
-    font-family: 'TT Travels Next Trl', sans-serif;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 1.1;
-    text-transform: uppercase;
+.d-flex justify-content-between align-items-center {
+    justify-content: center;
+}
+
+.cta-button {
+    background-color: #fff;
     color: #000;
     margin-bottom: 40px;
     letter-spacing: -1px;
@@ -270,7 +316,9 @@ body {
     color: #c2a98c;
 }
 
-
+.justify-content-between {
+    justify-content: space-around !important;
+}
 
 
 .footer-logo {
