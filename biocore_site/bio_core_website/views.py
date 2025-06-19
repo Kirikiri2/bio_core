@@ -5,6 +5,7 @@ from .forms import ProfileEditForm, ConsultationForm
 from django.contrib import messages
 from django.db import transaction
 from django.db.models import Prefetch
+from .models import PromoVideo
 
 @login_required
 def consultation_view(request):
@@ -174,3 +175,11 @@ def catalog_view(request):
         'title': 'Каталог элементов'
     }
     return render(request, 'bio_core_website/catalog.html', context)
+
+def about_view(request):
+    promo_video = PromoVideo.objects.filter(is_active=True).first()
+    context = {
+        'title': 'О компании',
+        'promo_video': promo_video
+    }
+    return render(request, 'bio_core_website/about.html', context)
