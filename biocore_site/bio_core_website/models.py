@@ -104,6 +104,14 @@ class Vitamin(models.Model):
     min_normal = models.FloatField(verbose_name="Минимальная норма")
     max_normal = models.FloatField(verbose_name="Максимальная норма")
     unit = models.CharField(max_length=20, verbose_name="Единица измерения")
+    danger_high_level = models.BooleanField(
+        default=True,
+        verbose_name="Предупреждать о высоком уровне"
+    )
+    high_level_message = models.TextField(
+        default="Проконсультируйтесь со специалистом",
+        verbose_name="Сообщение при высоком уровне"
+    )
 
     def __str__(self):
         return self.name
@@ -126,3 +134,34 @@ class VitaminLevel(models.Model):
 
     def __str__(self):
         return f"{self.vitamin.name}: {self.value} {self.vitamin.unit}"
+    
+class UserBMI(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='bmi_history')
+    date = models.DateTimeField(auto_now_add=True)
+    weight = models.DecimalField(max_digits=5, decimal_places=2)  # в кг
+    height = models.DecimalField(max_digits=5, decimal_places=2)  # в см
+    bmi = models.DecimalField(max_digits=5, decimal_places=2)
+    category = models.CharField(max_length=50)
+
+    @classmethod
+    def calculate_bmi(cls, weight, height):
+        # Рост переводим из см в м
+        height_m = height / 100
+        bmi = weight / (height_m ** 2)
+        return bmi
+
+    @classmethod
+    def get_bmi_category(cls, bmi):
+        if bmi < 18.5:
+            return "Недостаточный вес"
+        elif 18.5 <= bmi < 25:
+            return "Нормальный вес"
+        elif 25 <= bmi < 30:
+            return "Избыточный вес"
+        else:
+            return "Ожирение"
+
+    def save(self, *args, **kwargs):
+        self.bmi = self.calculate_bmi(self.weight, self.height)
+        self.category = self.get_bmi_category(self.bmi)
+        super().save(*args, **kwargs)

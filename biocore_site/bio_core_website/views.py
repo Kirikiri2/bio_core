@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Element, Vitamin, Consultation, VitaminLevel
+from .models import Category, Element, Vitamin, Consultation, VitaminLevel, UserBMI
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileEditForm, ConsultationForm
 from django.contrib import messages
@@ -20,6 +20,8 @@ def consultation_view(request):
                     )
                     
                     deficient_vitamins = []
+                    excess_vitamins = []
+                    
                     for vitamin in vitamins:
                         value = form.cleaned_data[f'vitamin_{vitamin.id}']
                         VitaminLevel.objects.create(
@@ -30,10 +32,18 @@ def consultation_view(request):
                         
                         if value < vitamin.min_normal:
                             deficient_vitamins.append(vitamin)
+                        elif vitamin.danger_high_level and value > vitamin.max_normal:
+                            excess_vitamins.append({
+                                'vitamin': vitamin,
+                                'value': value,
+                                'message': vitamin.high_level_message
+                            })
                     
+                    # Сохраняем данные в сессии
                     request.session['deficient_vitamins'] = [
                         {'id': v.id, 'name': v.name} for v in deficient_vitamins
                     ]
+                    request.session['excess_vitamins'] = excess_vitamins
                     
                     messages.success(request, 'Данные консультации сохранены!')
                     return redirect('bio_core_website:consultation_results')
@@ -51,6 +61,7 @@ def consultation_view(request):
 @login_required
 def consultation_results(request):
     deficient_vitamins = request.session.get('deficient_vitamins', [])
+    excess_vitamins = request.session.get('excess_vitamins', [])
     elements = []
     
     for v in deficient_vitamins:
@@ -62,8 +73,10 @@ def consultation_results(request):
             continue
     
     return render(request, 'bio_core_website/consultation_results.html', {
-        'elements': elements
+        'elements': elements,
+        'excess_vitamins': excess_vitamins
     })
+
 
 @login_required
 def consultation_history(request):
@@ -90,12 +103,24 @@ def consultation_history(request):
         'consultations': consultations,
         'chart_data': chart_data
     })
+
 @login_required
 def profile_view(request):
     user = request.user
+    bmi_data = None
+    
+    if user.weight and user.height:
+        bmi = UserBMI.calculate_bmi(user.weight, user.height)
+        category = UserBMI.get_bmi_category(bmi)
+        bmi_data = {
+            'value': round(bmi, 1),
+            'category': category,
+            'history': user.bmi_history.all().order_by('-date')[:10]
+        }
     
     context = {
-        'user': user
+        'user': user,
+        'bmi_data': bmi_data
     }
     return render(request, 'bio_core_website/profile.html', context)
 

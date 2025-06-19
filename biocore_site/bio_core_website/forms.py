@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser, Vitamin
+from .models import CustomUser, Vitamin, Manufacturer, Element, UserBMI
 from django.core.exceptions import ValidationError
 
 class CustomUserCreationForm(UserCreationForm):
@@ -32,6 +32,21 @@ class ProfileEditForm(forms.ModelForm):
             'avatar': forms.FileInput(attrs={'accept': 'image/*'}),
             'gender': forms.Select(choices=CustomUser.GENDER_CHOICES),
         }
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        
+        if commit:
+            user.save()
+            # Сохраняем историю ИМТ при изменении веса или роста
+            if 'weight' in self.changed_data or 'height' in self.changed_data:
+                if user.weight and user.height:
+                    UserBMI.objects.create(
+                        user=user,
+                        weight=user.weight,
+                        height=user.height
+                    )
+        
+        return user
 
 class ConsultationForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -51,3 +66,26 @@ class ConsultationForm(forms.Form):
         required=False,
         label="Дополнительные примечания"
     )
+
+class ElementForm(forms.ModelForm):
+    manufacturers = forms.ModelMultipleChoiceField(
+        queryset=Manufacturer.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = Element
+        fields = '__all__'
+
+    def save(self, commit=True):
+        instance = super().save(commit)
+        if commit:
+            instance.manufacturers.clear()
+            for manufacturer in self.cleaned_data['manufacturers']:
+                ElementManufacturer.objects.create(
+                    element=instance,
+                    manufacturer=manufacturer,
+                    is_main=False  # или логика определения главного производителя
+                )
+        return instance
