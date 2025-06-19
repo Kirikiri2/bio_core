@@ -90,6 +90,11 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.btn.btn-primary {
+    text-decoration: none;
+    background-color: #fff;
+}
+
 .navbar .nav-link:hover {
     background-color: #c2a98c;
     color: #000;
@@ -332,4 +337,85 @@ body {
     width: 50px;
     height: 30px;
     margin-right: 10px;
+}
+
+/* Стили для страницы консультации */
+.container.mt-5 {
+    background-color: #c2a98c;
+    /* Бежевый фон */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container.mt-5 h2 {
+    color: #000;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+
+/* Стили для полей ввода */
+.mb-3 {
+    margin-bottom: 20px !important;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #000;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Стили для текстового поля */
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Статичные стили для кнопки (без динамики) */
+.send {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+    width: auto;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 25px;
+        margin: 30px 15px;
+    }
+
+    .form-control {
+        max-width: 100%;
+    }
 }
