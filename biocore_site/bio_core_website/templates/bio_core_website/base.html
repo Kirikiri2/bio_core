@@ -38,6 +38,12 @@
 
                 <!-- User Authentication -->
                 {% if user.is_authenticated %}
+                <span class="navbar-text">Привет, <a class="nav-link" href="{% url 'bio_core_website:profile' %}">{{ user.username }}!</a> </span>
+                <form method="post" action="{% url 'users:logout' %}">{% csrf_token %} <button
+                        type="submit">logout</button></form>
+
+                <a class="nav-link" href="{% url 'users:login' %}">Вход</a>
+                <a class="nav-link" href="{% url 'users:register' %}">Регистрация</a>
                     <span class="navbar-text me-3">Привет, {{ user.username }}!</span>
                     <form method="post" action="{% url 'users:logout' %}">
                         {% csrf_token %}

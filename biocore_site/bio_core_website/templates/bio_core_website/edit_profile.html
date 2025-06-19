@@ -1,0 +1,60 @@
+{% extends "bio_core_website/base.html" %}
+
+{% block content %}
+<h2>Редактирование профиля</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+                {{ form.first_name.errors }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.gender.label_tag }}
+                {{ form.gender }}
+                {{ form.gender.errors }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.age.label_tag }}
+                {{ form.age }}
+                {{ form.age.errors }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.weight.label_tag }}
+                {{ form.weight }}
+                {{ form.weight.errors }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.height.label_tag }}
+                {{ form.height }}
+                {{ form.height.errors }}
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    <a href="{% url 'bio_core_website:profile' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

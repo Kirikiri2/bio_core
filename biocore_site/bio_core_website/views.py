@@ -1,5 +1,29 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Element
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from .forms import ProfileEditForm
+
+@login_required
+def profile_view(request):
+    user = request.user
+    
+    context = {
+        'user': user
+    }
+    return render(request, 'bio_core_website/profile.html', context)
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('bio_core_website:profile')
+    else:
+        form = ProfileEditForm(instance=request.user)
+    
+    return render(request, 'bio_core_website/edit_profile.html', {'form': form})
 
 def home(request):
     categories = Category.objects.all()[:2]
