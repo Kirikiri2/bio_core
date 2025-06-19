@@ -341,7 +341,7 @@ body {
 
 /* Стили для страницы консультации */
 .container.mt-5 {
-    background-color: #c2a98c;
+    background-color: #826A54;
     /* Бежевый фон */
     padding: 40px;
     border-radius: 10px;
@@ -351,7 +351,7 @@ body {
 }
 
 .container.mt-5 h2 {
-    color: #000;
+    color: #f5f3f3;
     font-family: 'TT Travels Next Trl', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -418,4 +418,67 @@ textarea.form-control {
     .form-control {
         max-width: 100%;
     }
+}
+
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card {
+    background-color: #000;
+    border: none;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #c2a98c;
+}
+
+.btn-outline-light:hover {
+    background-color: #c2a98c;
+    color: #000;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #e9ecef !important;
+}
+
+.bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: #826A54 !important;
+}
+
+.form-control:focus {
+    border-color: #c2a98c;
+    box-shadow: 0 0 0 0.25rem rgba(194, 169, 140, 0.25);
+}
+
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: #fff !important;
+}
+
+.container.mt-6 {
+
+
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(71, 15, 15, 0.1);
+}
+
+.container.mt-6 h2 {
+    color: #000;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
 }
