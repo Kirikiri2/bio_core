@@ -71,6 +71,13 @@ body {
     text-align: center;
 }
 
+.product-card-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    width: 400px;
+}
+
 .product-card {
     padding: 20px;
     border-radius: 10px;

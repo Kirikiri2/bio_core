@@ -11,6 +11,7 @@
     <div class="hero-section-image"></div>
 </div>
 
+
 <!-- CTA Section -->
 <div class="container mt-4 cta-section">
     <div class="row">
@@ -19,8 +20,7 @@
             <button class="cta-button">Консультация</button>
         </div>
         <div class="col-md-6">
-            <img src="bio_core\biocore_site\bio_core_website\static\images\eb8dab884baf11f0a4fe1ac0b0889e80-1 1.png"
-                alt="Pills Image" class="img-fluid rounded">
+            <img src="{% static 'bio_core_website/img/img1.png' %}" alt="Pills Image" class="img-fluid rounded">
         </div>
     </div>
 </div>
@@ -28,17 +28,14 @@
 <!-- Products Section -->
 <div class="container mt-4 products-section">
     <h2>БАДЫ</h2>
-    <div class="row">
+    <div class="row justify-content-center">
         {% for category in categories %}
-        <a href="{% url 'bio_core_website:category_elements' category.id %}" class="">
-            <img src="{% static 'bio_core_website/img/img1.png' %}" alt="Amino Acids Image" class="img-fluid mb-3">
-            <div class="col-md-6 product-card">
-
+        <div class="product-card-container">
+            <a href="{% url 'bio_core_website:category_elements' category.id %}" class="product-card">
+                <img src="{% static 'bio_core_website/img/img2.png' %}" alt="{{ category.name }}">
                 <h5 class="card-title">{{ category.name }}</h5>
-
-            </div>
-
-        </a>
+            </a>
+        </div>
         {% endfor %}
         <!-- <div class="col-md-6 product-card">
             <img src="/static/images/vitamins_image.jpg" alt="Vitamins Image" class="img-fluid mb-3">
