@@ -8,6 +8,21 @@ body {
     color: #fff;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #c2a98c;
+    /* Beige color from the design */
+}
+
+
+
+.navbar-dark .navbar-brand {
+    color: #fff;
+}
+
 .hero-section {
     display: flex;
     align-items: center;
@@ -88,4 +103,20 @@ body {
 
 .social-icons i:hover {
     color: #c2a98c;
+}
+
+
+
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer-logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
