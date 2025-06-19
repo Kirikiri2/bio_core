@@ -4,81 +4,52 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-4 mb-4">
-        <div class="card sticky-top" style="top: 20px;">
-            {% if element.image %}
-                <img src="{{ element.image.url }}" class="card-img-top" alt="{{ element.name }}">
-            {% else %}
-                <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                    <span class="text-muted">Нет изображения</span>
-                </div>
-            {% endif %}
-            
-            <div class="card-body">
-                <h5 class="card-title">{{ element.name }}</h5>
-                <p class="card-text text-muted">{{ element.category.name }}</p>
-                
-                <ul class="list-group list-group-flush mb-3">
-                    {% if element.manufacturer %}
-                        <li class="list-group-item">
-                            <strong>Производитель:</strong> 
-                            {{ element.manufacturer.name }}
-                            {% if element.manufacturer.country %}
-                                ({{ element.manufacturer.country }})
-                            {% endif %}
-                        </li>
-                    {% endif %}
-                    {% if element.min_normal_value and element.max_normal_value %}
-                        <li class="list-group-item">
-                            <strong>Норма:</strong> 
-                            {{ element.min_normal_value }} - {{ element.max_normal_value }}
-                        </li>
-                    {% endif %}
-                </ul>
-                
-                <a href="{% url 'bio_core_website:category_elements' element.category.id %}" 
-                   class="btn btn-outline-secondary w-100">
-                    Все элементы категории
-                </a>
+    <div class="col-md-4">
+        {% if element.image %}
+        <img src="{{ element.image.url }}" class="img-fluid rounded mb-3" alt="{{ element.name }}">
+        {% endif %}
+        
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Информация</h5>
             </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Категория:</strong> {{ element.category.name }}
+                </li>
+                {% if element.manufacturer %}
+                <li class="list-group-item">
+                    <strong>Производитель:</strong> {{ element.manufacturer.name }}
+                    {% if element.manufacturer.country %}
+                    ({{ element.manufacturer.country }})
+                    {% endif %}
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
     
     <div class="col-md-8">
-        <nav aria-label="breadcrumb" class="mb-4">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'bio_core_website:home' %}">Главная</a></li>
-                <li class="breadcrumb-item">
-                    <a href="{% url 'bio_core_website:category_elements' element.category.id %}">
-                        {{ element.category.name }}
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ element.name }}</li>
-            </ol>
-        </nav>
+        <h1>{{ element.name }}</h1>
         
-        <div class="card mb-4">
-            <div class="card-header bg-light">
-                <h2>Описание</h2>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Описание</h5>
             </div>
             <div class="card-body">
-                {% if element.description %}
-                    {{ element.description|linebreaks }}
-                {% else %}
-                    <p class="text-muted">Описание отсутствует</p>
-                {% endif %}
+                <p class="card-text">{{ element.description }}</p>
             </div>
         </div>
         
         {% if element.usage %}
-            <div class="card">
-                <div class="card-header bg-light">
-                    <h2>Способ применения</h2>
-                </div>
-                <div class="card-body">
-                    {{ element.usage|linebreaks }}
-                </div>
+        <div class="card">
+            <div class="card-header">
+                <h5>Способ применения</h5>
             </div>
+            <div class="card-body">
+                <p class="card-text">{{ element.usage }}</p>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>

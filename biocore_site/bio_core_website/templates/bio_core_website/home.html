@@ -3,46 +3,25 @@
 {% block title %}Главная страница | BioCore{% endblock %}
 
 {% block content %}
-<div class="row mb-4">
-    <div class="col-12">
-        <div class="p-5 bg-light rounded-3">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Добро пожаловать в BioCore</h1>
-                <p class="col-md-8 fs-4">
-                    Система анализа биологических показателей и рекомендаций по коррекции.
-                </p>
-                <a href="{% url 'bio_core_website:consultation' %}" class="btn btn-primary btn-lg">
-                    Начать консультацию
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="row">
-    <div class="col-12">
-        <h2 class="mb-4">Категории элементов</h2>
-    </div>
-    
-    {% for category in categories %}
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-body">
-                <h3 class="card-title h5">{{ category.name }}</h3>
-                <p class="card-text text-muted">
-                    {{ category.elements.count }} элементов
-                </p>
-                <a href="{% url 'bio_core_website:category_elements' category.id %}" 
-                   class="btn btn-outline-primary">
-                    Просмотреть
-                </a>
+    <div class="col-md-8">
+        <h1 class="mb-4">Категории элементов</h1>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <a href="{% url 'bio_core_website:category_elements' category.id %}" 
+                           class="btn btn-primary mt-2">
+                            Просмотреть элементы
+                        </a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    {% empty %}
-    <div class="col-12">
-        <div class="alert alert-info">Категории не найдены</div>
-    </div>
-    {% endfor %}
+
 </div>
 {% endblock %}
