@@ -3,25 +3,65 @@
 {% block title %}Главная страница | BioCore{% endblock %}
 
 {% block content %}
+<<<<<<< Updated upstream
 <div class="row">
+=======
+<!-- Hero Section -->
+<div class="container mt-4 hero-section">
+    <div class="hero-section-text">
+        <h1 style="font-size: 100px; font-weight: bold;">BIO<br>CORE</h1>
+    </div>
+    <div class="hero-section-image"></div>
+</div>
+
+<!-- CTA Section -->
+<div class="container mt-4 cta-section">
+    <div class="row">
+        <div class="col-md-6 cta-section-text">
+            <h2>УЗНАЙ -<br>КАКИХ ЭЛЕМЕНТОВ ТЕБЕ НЕ ХВАТАЕТ</h2>
+            <button class="cta-button">Консультация</button>
+        </div>
+        <div class="col-md-6">
+            <img src="bio_core\biocore_site\bio_core_website\static\images\eb8dab884baf11f0a4fe1ac0b0889e80-1 1.png"
+                alt="Pills Image" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+
+<!-- Products Section -->
+<div class="container mt-4 products-section">
+    <h2>БАДЫ</h2>
+    <div class="row">
+        {% for category in categories %}
+        <a href="{% url 'bio_core_website:category_elements' category.id %}" class="">
+
+            <div class="col-md-6 product-card">
+                <img src="/static/images/amino_acids_image.jpg" alt="Amino Acids Image" class="img-fluid mb-3">
+                <h5 class="card-title">{{ category.name }}</h5>
+
+            </div>
+
+        </a>
+        {% endfor %}
+        <!-- <div class="col-md-6 product-card">
+            <img src="/static/images/vitamins_image.jpg" alt="Vitamins Image" class="img-fluid mb-3">
+            <h3>ВИТАМИНЫ</h3>
+        </div>
+        <div class="col-md-6 product-card">
+            <img src="/static/images/amino_acids_image.jpg" alt="Amino Acids Image" class="img-fluid mb-3">
+            <h3>АМИНОКИСЛОТЫ</h3>
+        </div> -->
+    </div>
+</div>
+
+<!-- <div class="row">
+>>>>>>> Stashed changes
     <div class="col-md-8">
         <h1 class="mb-4">Категории элементов</h1>
         <div class="row">
-            {% for category in categories %}
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ category.name }}</h5>
-                        <a href="{% url 'bio_core_website:category_elements' category.id %}" 
-                           class="btn btn-primary mt-2">
-                            Просмотреть элементы
-                        </a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+
+        </div> -->
+</div>
 
 </div>
 {% endblock %}
