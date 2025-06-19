@@ -1,27 +1,59 @@
 {% extends "bio_core_website/base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="profile-container">
-    <h2>Личный профиль</h2>
-    
-    <div class="profile-info">
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>Имя:</strong> {{ user.first_name }}</p>
-                <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
-                <p><strong>Email:</strong> {{ user.email }}</p>
-                <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Пол:</strong> {{ user.get_gender_display }}</p>
-                <p><strong>Возраст:</strong> {{ user.age|default:"не указан" }}</p>
-                <p><strong>Вес:</strong> {{ user.weight|default:"не указан" }} кг</p>
-                <p><strong>Рост:</strong> {{ user.height|default:"не указан" }} см</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    {% if user.avatar %}
+    <img src="{{ user.avatar.url }}" 
+         class="img-fluid rounded-circle mb-3" 
+         width="200" 
+         height="200"
+         alt="Аватар пользователя {{ user.username }}"
+         style="object-fit: cover;">
+{% else %}
+    <img src="/media/avatars/default.jpg" 
+         class="img-fluid rounded-circle mb-3" 
+         width="200" 
+         height="200"
+         alt="Аватар по умолчанию"
+         style="object-fit: cover;">
+{% endif %}
+                    <h4>{{ user.get_full_name }}</h4>
+                    <p class="text-muted">@{{ user.username }}</p>
+                    <a href="{% url 'bio_core_website:edit_profile' %}" 
+                       class="btn btn-primary btn-block">
+                        Редактировать профиль
+                    </a>
+                </div>
             </div>
         </div>
         
-        <div class="profile-actions mt-4">
-            <a href="{% url 'bio_core_website:edit_profile' %}" class="btn btn-primary">Редактировать профиль</a>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Информация о профиле</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Имя:</strong> {{ user.first_name }}</p>
+                            <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Пол:</strong> {{ user.get_gender_display|default:"Не указан" }}</p>
+                            <p><strong>Возраст:</strong> {{ user.age|default:"Не указан" }}</p>
+                            <p><strong>Вес:</strong> {{ user.weight|default:"Не указан" }} кг</p>
+                            <p><strong>Рост:</strong> {{ user.height|default:"Не указан" }} см</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

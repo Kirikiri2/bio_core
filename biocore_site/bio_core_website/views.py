@@ -3,6 +3,8 @@ from .models import Category, Element
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ProfileEditForm
+from django.contrib import messages
+
 
 @login_required
 def profile_view(request):
@@ -16,9 +18,19 @@ def profile_view(request):
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        form = ProfileEditForm(request.POST, instance=request.user)
+        form = ProfileEditForm(
+            request.POST,
+            request.FILES,
+            instance=request.user
+        )
         if form.is_valid():
+            # Обработка удаления аватара
+            if form.cleaned_data.get('delete_avatar') and request.user.avatar:
+                request.user.avatar.delete(save=False)
+                request.user.avatar = None
+            
             form.save()
+            messages.success(request, 'Профиль успешно обновлен!')
             return redirect('bio_core_website:profile')
     else:
         form = ProfileEditForm(instance=request.user)

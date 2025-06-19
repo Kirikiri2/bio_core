@@ -39,7 +39,23 @@
 
             <!-- User Authentication -->
             {% if user.is_authenticated %}
-                <a href="{% url 'bio_core_website:profile' %}">Профиль</a>
+                <a href="{% url 'bio_core_website:profile' %}">
+                    {% if user.avatar %}
+                                            <img src="{{ user.avatar.url }}" 
+                                                 class="img-thumbnail rounded-circle shadow" 
+                                                 width="70" 
+                                                 height="70"
+                                                 alt="Текущий аватар"
+                                                 style="object-fit: cover;">
+                                        {% else %}
+                                            <img src="/media/avatars/default.jpg"
+                                                 class="img-thumbnail rounded-circle shadow" 
+                                                 width="70" 
+                                                 height="70"
+                                                 alt="Аватар по умолчанию"
+                                                 style="object-fit: cover;">
+                                        {% endif %}
+                </a>
                 <form method="post" action="{% url 'users:logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-light">Выйти</button>
