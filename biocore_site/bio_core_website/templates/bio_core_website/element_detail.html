@@ -17,12 +17,16 @@
                 <li class="list-group-item">
                     <strong>Категория:</strong> {{ element.category.name }}
                 </li>
-                {% if element.manufacturer %}
+                {% if element.manufacturers.all %}
                 <li class="list-group-item">
-                    <strong>Производитель:</strong> {{ element.manufacturer.name }}
-                    {% if element.manufacturer.country %}
-                    ({{ element.manufacturer.country }})
-                    {% endif %}
+                    <strong>Производитель{% if element.manufacturers.count > 1 %}и{% endif %}:</strong>
+                    {% for manufacturer in element.manufacturers.all %}
+                        {{ manufacturer.name }}
+                        {% if manufacturer.country %}
+                            ({{ manufacturer.country }})
+                        {% endif %}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
                 </li>
                 {% endif %}
             </ul>

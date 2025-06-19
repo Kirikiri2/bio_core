@@ -67,25 +67,37 @@ class ConsultationForm(forms.Form):
         label="Дополнительные примечания"
     )
 
+from django import forms
+from .models import Element, Manufacturer
+
 class ElementForm(forms.ModelForm):
+    # Поле для выбора производителей (множественный выбор)
     manufacturers = forms.ModelMultipleChoiceField(
-        queryset=Manufacturer.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
+        queryset=Manufacturer.objects.all(),  # Все доступные производители
+        widget=forms.SelectMultiple(attrs={'class': 'form-control'}),  # Можно заменить на CheckboxSelectMultiple
+        required=False,  # Необязательное поле
+        label="Производители"
     )
 
     class Meta:
         model = Element
-        fields = '__all__'
+        fields = ['name', 'category', 'description', 'image', 'usage', 'manufacturers']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        # Если элемент уже существует, подгружаем его производителей
+        if self.instance.pk:
+            self.fields['manufacturers'].initial = self.instance.manufacturers.all()
 
     def save(self, commit=True):
-        instance = super().save(commit)
+        # Сначала сохраняем элемент
+        element = super().save(commit=False)
         if commit:
-            instance.manufacturers.clear()
-            for manufacturer in self.cleaned_data['manufacturers']:
-                ElementManufacturer.objects.create(
-                    element=instance,
-                    manufacturer=manufacturer,
-                    is_main=False  # или логика определения главного производителя
-                )
-        return instance
+            element.save()
+            
+            # Обновляем связи с производителями
+            if 'manufacturers' in self.cleaned_data:
+                element.manufacturers.set(self.cleaned_data['manufacturers'])
+        
+        return element
