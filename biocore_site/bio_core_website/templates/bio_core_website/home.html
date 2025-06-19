@@ -1,7 +1,7 @@
 {% extends "bio_core_website/base.html" %}
 
 {% block title %}Главная страница | BioCore{% endblock %}
-
+{% load static %}
 {% block content %}
 <!-- Hero Section -->
 <div class="container mt-4 hero-section">
@@ -31,9 +31,9 @@
     <div class="row">
         {% for category in categories %}
         <a href="{% url 'bio_core_website:category_elements' category.id %}" class="">
-
+            <img src="{% static 'bio_core_website/img/img1.png' %}" alt="Amino Acids Image" class="img-fluid mb-3">
             <div class="col-md-6 product-card">
-                <img src="/static/images/amino_acids_image.jpg" alt="Amino Acids Image" class="img-fluid mb-3">
+
                 <h5 class="card-title">{{ category.name }}</h5>
 
             </div>
