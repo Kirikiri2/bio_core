@@ -3,17 +3,19 @@ body {
     background-color: #000;
     color: #fff;
 }
+
 @font-face {
     font-family: 'TT Travels Next Trl';
     src: url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Regular.woff2" %}') format('woff2'),
-         url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Regular.woff" %}') format('woff');
+    url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Regular.woff" %}') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'TT Travels Next Trl';
     src: url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Bold.woff2" %}') format('woff2'),
-         url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Bold.woff" %}') format('woff');
+    url('{% static "bio_core_website/fonts/TTTravelsNextTrl-Bold.woff" %}') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -29,7 +31,8 @@ body {
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #c2a98c;
     /* Beige color from the design */
-    background-color: transparent; /* Убираем фон */
+    background-color: transparent;
+    /* Убираем фон */
 }
 
 .navbar-dark .navbar-brand,
@@ -39,7 +42,7 @@ body {
 
 /* Стили для кнопок Вход и Регистрация */
 .navbar .nav-link {
-    
+
     color: #fff;
     padding: 0.4rem 1rem;
     margin-left: 30px;
@@ -83,32 +86,107 @@ body {
     border-radius: 10px;
 }
 
+/* Обновленные стили для CTA секции */
 .cta-section {
     background-color: #c2a98c;
-    padding: 50px 0;
+    padding: 80px 0;
     border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section .row {
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-section-text {
+    padding-left: 100px;
     max-width: 50%;
 }
 
-.cta-button {
-    background-color: #fff;
+.cta-section-text h2 {
+    font-family: 'TT Travels Next Trl', sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 1.1;
+    text-transform: uppercase;
     color: #000;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    word-break: break-word;
+}
+
+.cta-button {
+    background-color: #000;
+    color: #fff;
     border: none;
-    padding: 20px 40px;
+    padding: 18px 45px;
     font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    margin-left: 100px;
 }
 
 .cta-button:hover {
-    background-color: #f0e6d2;
+    background-color: #333;
+}
+
+.cta-section .col-md-6:last-child {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    z-index: 1;
+}
+
+.cta-section .col-md-6 img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 50px 0;
+    }
+
+    .cta-section-text {
+        padding-left: 20px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .cta-section-text h2 {
+        font-size: 32px;
+    }
+
+    .cta-button {
+        margin-left: 0;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .cta-section .col-md-6:last-child {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 30px;
+    }
 }
 
 .products-section {
-    background-color: #000;
+    background-color: #c2a98c;
+    border-radius: 10px;
     padding: 50px 0;
     text-align: center;
 }
@@ -118,7 +196,39 @@ body {
     display: inline-block;
     margin: 20px;
     width: 400px;
+    text-align: left;
+    /* Текст начинается с начала фото */
 }
+
+.row.justify-content-center {
+
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    left: -50px;
+    /* Смещение влево */
+}
+
+.text_title_b {
+ color: #000;   font-size: 4rem;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
 
 .product-card {
     padding: 20px;
@@ -126,6 +236,7 @@ body {
     margin: 20px;
     display: inline-block;
     width: 400px;
+
 }
 
 .footer-section {
