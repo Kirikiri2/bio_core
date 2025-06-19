@@ -21,7 +21,9 @@
                 <li class="list-group-item">
                     <strong>Производитель{% if element.manufacturers.count > 1 %}и{% endif %}:</strong>
                     {% for manufacturer in element.manufacturers.all %}
-                        {{ manufacturer.name }}
+                        <a href="{{ manufacturer.website }}" class="text-decoration-none">
+            {{ manufacturer.name }}
+        </a>
                         {% if manufacturer.country %}
                             ({{ manufacturer.country }})
                         {% endif %}
