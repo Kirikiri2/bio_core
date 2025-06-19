@@ -99,3 +99,10 @@ class ElementForm(forms.ModelForm):
                 element.manufacturers.set(self.cleaned_data['manufacturers'])
         
         return element
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        label='Поиск элементов',
+        max_length=100,
+        widget=forms.TextInput(attrs={'placeholder': 'Введите название элемента...'})
+    )

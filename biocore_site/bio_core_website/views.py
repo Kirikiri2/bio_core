@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Element, Vitamin, Consultation, VitaminLevel, UserBMI
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileEditForm, ConsultationForm
+from .forms import ProfileEditForm, ConsultationForm, SearchForm
 from django.contrib import messages
 from django.db import transaction
 from django.db.models import Prefetch
@@ -183,3 +183,20 @@ def about_view(request):
         'promo_video': promo_video
     }
     return render(request, 'bio_core_website/about.html', context)
+
+def search_element(request):
+    form = SearchForm()
+    results = None
+    query = None
+    
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = Element.objects.filter(name__icontains=query)
+    
+    return render(request, 'bio_core_website/search_results.html', {
+        'form': form,
+        'results': results,
+        'query': query
+    })

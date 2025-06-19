@@ -17,4 +17,5 @@ urlpatterns = [
     path('consultation/history/', views.consultation_history, name='consultation_history'),
     path('catalog/', views.catalog_view, name='catalog'),
     path('about/', views.about_view, name='about'),
+    path('search/',  views.search_element, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
