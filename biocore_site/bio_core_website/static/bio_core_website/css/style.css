@@ -476,65 +476,93 @@ textarea.form-control {
     }
 }
 
-.progress {
-    background-color: rgba(255, 255, 255, 0.1);
+/* Основные стили для страницы истории консультаций */
+.container.mt-5 {
+    padding: 30px 0;
+    max-width: 1200px;
 }
 
-.card {
-    background-color: #000;
-    border: none;
-}
-
-.card-header {
-    background-color: transparent;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-outline-light {
-    color: #fff;
-    border-color: #c2a98c;
-}
-
-.btn-outline-light:hover {
-    background-color: #c2a98c;
-    color: #000;
-}
-
-.text-muted {
-    --bs-text-opacity: 1;
-    color: #e9ecef !important;
-}
-
-.bg-secondary {
-    --bs-bg-opacity: 1;
-    background-color: #826A54 !important;
-}
-
-.form-control:focus {
-    border-color: #c2a98c;
-    box-shadow: 0 0 0 0.25rem rgba(194, 169, 140, 0.25);
-}
-
-.bg-success {
-    --bs-bg-opacity: 1;
-    background-color: #fff !important;
-}
-
-.container.mt-6 {
-
-
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 900px;
-    margin: 20px auto;
-    box-shadow: 0 4px 12px rgba(71, 15, 15, 0.1);
-}
-
-.container.mt-6 h2 {
-    color: #000;
+.container.mt-5 h2 {
     font-family: 'TT Travels Next Trl', sans-serif;
     font-weight: bold;
+    font-size: 28px;
     text-transform: uppercase;
+    color: #000;
     margin-bottom: 30px;
     text-align: center;
+}
+
+/* Стили для карточки с графиком */
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+
+}
+
+/* Стили для списка консультаций */
+.list-group {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-group-item {
+    border: none;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.list-group-item-action {
+    cursor: pointer;
+}
+
+/* Стили для графиков */
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Убираем верхний пустой блок */
+#vitaminChart {
+    display: none;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 15px;
+    }
+
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-md-4,
+    .col-md-8 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
 }
