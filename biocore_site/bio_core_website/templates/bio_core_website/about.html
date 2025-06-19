@@ -1,0 +1,67 @@
+{% extends "bio_core_website/base.html" %}
+{% load static %}
+
+{% block title %}О компании | BioCore{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4 text-center">О компании BioCore</h1>
+    
+    <!-- Видео-блок -->
+    <div class="video-container mb-5 text-center">
+        <video id="promoVideo" autoplay muted loop playsinline class="w-100 rounded shadow" style="max-width: 800px;">
+            <source src="/media/promo_videos/лого%20biocore%20511_1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    
+    <!-- Остальной контент страницы -->
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Наша миссия</h2>
+            <p>Текст о миссии компании...</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Наши ценности</h2>
+            <ul class="values-list">
+                <li>Качество продукции</li>
+                <li>Инновации</li>
+                <li>Забота о клиентах</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('promoVideo');
+    
+    // Попытка автоматического воспроизведения с обработкой ошибок
+    function attemptPlay() {
+        video.play().catch(error => {
+            console.log('Автовоспроизведение запрещено:', error);
+            // Показываем кнопку для ручного запуска
+            const playButton = document.createElement('button');
+            playButton.className = 'btn btn-primary mt-3';
+            playButton.textContent = 'Запустить видео';
+            playButton.onclick = function() {
+                video.play();
+                this.remove();
+            };
+            video.parentNode.appendChild(playButton);
+        });
+    }
+    
+    // Запускаем при загрузке
+    attemptPlay();
+    
+    // Перезапускаем видео при его завершении (дополнительная страховка)
+    video.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    });
+});
+</script>
+{% endblock %}

@@ -164,3 +164,13 @@ class UserBMI(models.Model):
         self.bmi = self.calculate_bmi(self.weight, self.height)
         self.category = self.get_bmi_category(self.bmi)
         super().save(*args, **kwargs)
+
+class PromoVideo(models.Model):
+    title = models.CharField("Название ролика", max_length=100)
+    video_file = models.FileField("Видеофайл", upload_to='promo_videos/')
+    is_active = models.BooleanField("Активно", default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Рекламный ролик"
+        verbose_name_plural = "Рекламные ролики"

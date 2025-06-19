@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Category, Element, Manufacturer, Vitamin, Consultation, VitaminLevel, UserBMI
+from .models import CustomUser, Category, Element, Manufacturer, Vitamin, Consultation, VitaminLevel, UserBMI, PromoVideo
 
 admin.site.register(Category)
 admin.site.register(Manufacturer)
@@ -8,6 +8,7 @@ admin.site.register(Vitamin)
 admin.site.register(Consultation)
 admin.site.register(VitaminLevel)
 admin.site.register(UserBMI)
+admin.site.register(PromoVideo)
 class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         ("Дополнительная информация", {

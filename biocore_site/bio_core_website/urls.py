@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 from .views import profile_view, edit_profile
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'bio_core_website'  # Пространство имен приложения
 
@@ -13,4 +15,6 @@ urlpatterns = [
     path('consultation/', views.consultation_view, name='consultation'),
     path('consultation/results/', views.consultation_results, name='consultation_results'),
     path('consultation/history/', views.consultation_history, name='consultation_history'),
-]
+    path('catalog/', views.catalog_view, name='catalog'),
+    path('about/', views.about_view, name='about'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
