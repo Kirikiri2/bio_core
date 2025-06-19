@@ -10,4 +10,7 @@ urlpatterns = [
     path('element/<int:pk>/', views.element_detail, name='element_detail'),
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', edit_profile, name='edit_profile'),
+    path('consultation/', views.consultation_view, name='consultation'),
+    path('consultation/results/', views.consultation_results, name='consultation_results'),
+    path('consultation/history/', views.consultation_history, name='consultation_history'),
 ]

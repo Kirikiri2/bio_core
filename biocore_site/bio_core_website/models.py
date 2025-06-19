@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinLengthValidator
-
+from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Категория")
@@ -96,3 +97,32 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+class Vitamin(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Витамин/Элемент")
+    element = models.OneToOneField(Element, on_delete=models.CASCADE, related_name='vitamin_data', null=True, blank=True)
+    min_normal = models.FloatField(verbose_name="Минимальная норма")
+    max_normal = models.FloatField(verbose_name="Максимальная норма")
+    unit = models.CharField(max_length=20, verbose_name="Единица измерения")
+
+    def __str__(self):
+        return self.name
+
+class Consultation(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='consultations')
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Дата консультации")
+    notes = models.TextField(blank=True, null=True, verbose_name="Примечания")
+
+    def __str__(self):
+        return f"Консультация {self.user.username} от {self.date.strftime('%Y-%m-%d')}"
+
+class VitaminLevel(models.Model):
+    consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE, related_name='vitamin_levels')
+    vitamin = models.ForeignKey(Vitamin, on_delete=models.CASCADE)
+    value = models.FloatField(validators=[MinValueValidator(0)], verbose_name="Уровень")
+    
+    class Meta:
+        unique_together = ('consultation', 'vitamin')
+
+    def __str__(self):
+        return f"{self.vitamin.name}: {self.value} {self.vitamin.unit}"

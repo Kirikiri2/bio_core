@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser
+from .models import CustomUser, Vitamin
 from django.core.exceptions import ValidationError
 
 class CustomUserCreationForm(UserCreationForm):
@@ -32,3 +32,22 @@ class ProfileEditForm(forms.ModelForm):
             'avatar': forms.FileInput(attrs={'accept': 'image/*'}),
             'gender': forms.Select(choices=CustomUser.GENDER_CHOICES),
         }
+
+class ConsultationForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        vitamins = kwargs.pop('vitamins', None)
+        super().__init__(*args, **kwargs)
+        
+        if vitamins:
+            for vitamin in vitamins:
+                self.fields[f'vitamin_{vitamin.id}'] = forms.FloatField(
+                    label=f"{vitamin.name} ({vitamin.unit})",
+                    widget=forms.NumberInput(attrs={'class': 'form-control'}),
+                    required=True
+                )
+    
+    notes = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+        required=False,
+        label="Дополнительные примечания"
+    )

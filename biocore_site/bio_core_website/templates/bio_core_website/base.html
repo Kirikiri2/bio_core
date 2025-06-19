@@ -48,7 +48,7 @@
                         </a>
                         <form method="post" action="{% url 'users:logout' %}">
                             {% csrf_token %}
-                            <a type="submit" class="nav-link">Выйти</a>
+                            <button type="submit" class="nav-link">Выйти</button>
                         </form>
                         {% else %}
                         <a class="nav-link btn-login" href="{% url 'users:login' %}">Вход</a>
