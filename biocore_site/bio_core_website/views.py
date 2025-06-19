@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProfileEditForm, ConsultationForm
 from django.contrib import messages
 from django.db import transaction
+from django.db.models import Prefetch
 
 @login_required
 def consultation_view(request):
@@ -162,3 +163,14 @@ def element_detail(request, pk):
     return render(request, 'bio_core_website/element_detail.html', {
         'element': element
     })
+
+def catalog_view(request):
+    categories = Category.objects.prefetch_related(
+        Prefetch('elements', queryset=Element.objects.select_related('category'))
+    ).all()
+    
+    context = {
+        'categories': categories,
+        'title': 'Каталог элементов'
+    }
+    return render(request, 'bio_core_website/catalog.html', context)

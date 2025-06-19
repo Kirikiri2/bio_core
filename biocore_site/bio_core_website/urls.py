@@ -13,4 +13,5 @@ urlpatterns = [
     path('consultation/', views.consultation_view, name='consultation'),
     path('consultation/results/', views.consultation_results, name='consultation_results'),
     path('consultation/history/', views.consultation_history, name='consultation_history'),
+    path('catalog/', views.catalog_view, name='catalog'),
 ]

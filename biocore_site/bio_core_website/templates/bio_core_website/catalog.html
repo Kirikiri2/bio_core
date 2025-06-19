@@ -1,0 +1,59 @@
+{% extends "bio_core_website/base.html" %}
+
+{% block title %}Каталог | BioCore{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4 text-center">{{ title }}</h1>
+    
+    <!-- Категории с элементами -->
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-md-12 mb-5">
+            <div class="category-section">
+                <h2 class="category-title mb-4">
+                    {{ category.name }}
+                    <span class="badge bg-secondary">{{ category.elements.count }}</span>
+                </h2>
+                
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for element in category.elements.all %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            {% if element.image %}
+                            <img src="{{ element.image.url }}" class="card-img-top" alt="{{ element.name }}" style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ element.name }}</h5>
+                                <div class="card-text">
+                                    {% if element.manufacturers.all %}
+                                    <p class="text-muted mb-2">
+                                        <small>Производители: 
+                                        {% for manufacturer in element.manufacturers.all %}
+                                            {{ manufacturer.name }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                        </small>
+                                    </p>
+                                    {% endif %}
+                                    <p>{{ element.description|truncatechars:100 }}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <a href="{% url 'bio_core_website:element_detail' element.id %}" class="btn btn-primary">
+                                    Подробнее
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <div class="alert alert-info">В этой категории пока нет элементов</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -34,7 +34,7 @@
                             <li class="nav-item"><a class="nav-link" href="#">О НАС</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">ПАРТНЕРЫ</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">АККАУНТ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">КАТАЛОГ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'bio_core_website:catalog' %}">КАТАЛОГ</a></li>
                         </ul>
                         {% if user.is_authenticated %}
                         <a href="{% url 'bio_core_website:profile' %}">
