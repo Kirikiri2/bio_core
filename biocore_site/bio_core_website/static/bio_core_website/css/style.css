@@ -191,7 +191,7 @@ body {
     position: absolute;
     right: 44px;
     top: 50%;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     width: 45%;
     z-index: 1;
 }
@@ -690,7 +690,7 @@ h3 {
     bottom: 10px;
     color: #c2a98c;
     font-weight: bold;
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
 }
 
 /* Разделительная линия */
@@ -794,17 +794,17 @@ hr {
     border: none;
     border-radius: 0.5rem;
     overflow: hidden;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
     height: 100%;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.card:hover {
+/* .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+} */
 
 .card-img-top {
     object-fit: cover;
