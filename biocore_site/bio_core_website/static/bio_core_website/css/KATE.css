@@ -393,3 +393,165 @@ p {
         flex: 0 0 auto;
         width: 620px;
     }
+/* SEARCH.css - Стили для страницы поиска */
+
+.container.mt-4 {
+    margin-top: 2rem;
+    padding: 30px 30px 60px 30px;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+h2 {
+    color: #d4af73;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Форма поиска */
+
+
+form p {
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    color: #d4af73;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+form input[type="text"] {
+    background-color: #121212;
+    border: 1px solid #3a3a3a;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus {
+    border-color: #d4af73;
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 115, 0.25);
+    outline: none;
+}
+
+/* Кнопка поиска */
+.btn-primary {
+    background-color: #d4af73;
+    border-color: #d4af73;
+    color: #121212;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    padding: 0.5rem 1.5rem;
+    letter-spacing: 0.5px;
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.btn-primary:hover {
+    background-color: #c19b5b;
+    border-color: #c19b5b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 115, 0.3);
+}
+
+/* Результаты поиска */
+h3 {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* Карточки элементов */
+.card {
+    background-color: #1e1e1e;
+    border: 1px solid #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: #d4af73;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    color: #d4af73;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Кнопка "Подробнее" в карточке */
+.card .btn-primary {
+    width: auto;
+    margin: 0;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Сообщение об отсутствии результатов */
+.alert-warning {
+    background-color: #2a2a2a;
+    border-color: #3a3a3a;
+    color: #d4af73;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Эффекты при наведении */
+form:hover {
+    border-color: #3a3a3a;
+}
+
+.card-title:hover {
+    color: #e8c98c;
+}
