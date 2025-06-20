@@ -191,7 +191,7 @@ body {
     position: absolute;
     right: 44px;
     top: 50%;
-    /* transform: translateY(-50%); */
+    transform: translateY(-50%);
     width: 45%;
     z-index: 1;
 }

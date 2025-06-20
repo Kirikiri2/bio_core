@@ -1,0 +1,207 @@
+/* О нас */
+/* Основные стили страницы "О компании" */
+.container_about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: #fff;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    background-color: #000;
+}
+
+.container_about h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #c2a98c;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.container_about h1:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #c2a98c;
+    margin: 20px auto 0;
+}
+
+/* Стили для видео-контейнера */
+.video-container {
+    margin: 60px 0;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(194, 169, 140, 0.3);
+}
+
+/* Стили для нумерованных блоков (как в прототипе) */
+.process-steps {
+    margin: 60px 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.step-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #c2a98c;
+    margin-right: 25px;
+    line-height: 1;
+    min-width: 60px;
+}
+
+.step-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding-top: 10px;
+    border-left: 2px solid #c2a98c;
+    padding-left: 20px;
+}
+
+/* Стили для блоков с контентом */
+.content-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.our_mission,
+.our_value {
+    flex: 1;
+    min-width: 300px;
+}
+
+.our_mission h2,
+.our_value h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #c2a98c;
+    text-transform: uppercase;
+    border-bottom: 2px solid #c2a98c;
+    padding-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.our_mission p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.our_mission strong {
+    color: #c2a98c;
+    font-weight: 600;
+}
+
+/* Стили для выделенного текста */
+.card-text {
+    position: relative;
+    padding: 25px;
+    background-color: rgba(194, 169, 140, 0.1);
+    border-left: 4px solid #c2a98c;
+    font-style: italic;
+    margin: 30px 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #f5f5f5;
+}
+
+.card-text::before {
+    content: "“";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #c2a98c;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-text::after {
+    content: "”";
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    color: #c2a98c;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Стили для списка ценностей */
+.values-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+.values-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.values-list li:before {
+    content: ">";
+    color: #c2a98c;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* Разделительная линия */
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #c2a98c;
+    margin: 60px 0;
+    opacity: 0.3;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .container_about {
+        padding: 30px 15px;
+    }
+
+    .container_about h1 {
+        font-size: 2rem;
+    }
+
+    .content-block {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .step-item {
+        flex-direction: column;
+    }
+
+    .step-number {
+        margin-bottom: 10px;
+    }
+
+    .step-content {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .card-text {
+        padding: 20px 15px;
+    }
+}
