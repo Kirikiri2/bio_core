@@ -297,7 +297,7 @@ body {
 
 .footer-section {
     background-color: #000;
-    padding: 50px 0;
+    padding: 60px 0;
     color: #fff;
 }
 
@@ -331,6 +331,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    padding: 40px 0px 0px 0px;
 }
 
 .footer-logo img {
@@ -568,7 +569,7 @@ canvas {
 }
 
 .container.mt-6 {
-   
+
     padding: 40px;
     border-radius: 10px;
     max-width: 950px;
@@ -585,32 +586,39 @@ canvas {
     text-align: center;
     font-size: 28px;
 }
+
 .bg-dark {
     --bs-bg-opacity: 1;
     background-color: #000 !important;
 }
+
 .text-muted {
     --bs-text-opacity: 1;
     color: #fff !important;
 }
+
 .bg-success {
     --bs-bg-opacity: 1;
     background-color: #c2a98c !important;
 }
+
 .bg-secondary {
     --bs-bg-opacity: 1;
     background-color: #faf8f8 !important;
 }
-.card-header bg-primary text-white{
+
+.card-header bg-primary text-white {
     --bs-bg-opacity: 1;
     background-color: #000 !important;
 }
+
 .bg-primary {
     --bs-bg-opacity: 1;
     background-color: #000 !important;
 }
+
 .container.mt-7 {
-   
+
     padding: 10px;
     border-radius: 10px;
     max-width: 950px;
@@ -625,14 +633,54 @@ canvas {
     text-transform: uppercase;
     margin-bottom: 30px;
     text-align: center;
-    font-size: 28px;}
+    font-size: 28px;
+}
 
-    .card.shadow-sm{
-    background-color: #826A54;
+.card.shadow-sm {
+    background-color: #5a534f;
     border: none;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
 }
 
-.
+.avatar-preview img {
+    object-fit: cover;
+    border: 3px solid #C2A98C;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.avatar-section.text-center {
+    justify-self: center;
+    grid-template-columns: 1 1 1;
+}
+
+.col-md-7 {
+    flex: 0 0 auto;
+    width: 120%;
+}
+
+
+.btn btn-primary.px-4 {
+    text-decoration: none;
+    background-color: #000000;
+}
+
+.btn.btn-primary {
+    text-decoration: none;
+    background-color: #010101;
+    border-color: #000;
+}
+
+.btn.btn-outline-primary.w-100 {
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-primary {
+    btn-color: #414448;
+}
