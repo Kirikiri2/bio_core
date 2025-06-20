@@ -614,3 +614,137 @@ input{
     font-size: 0.85rem;
     text-align: center;
 }
+
+
+/* CONSULTATION.css - Стили для страницы консультации */
+
+.container.mt-5 {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #121212;
+    border: 1px solid #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+h2 {
+    color: #d4af73;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af73, transparent);
+}
+
+/* Форма */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Поля ввода */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #d4af73;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+input[type="number"],
+input[type="text"],
+textarea {
+    background-color: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #d4af73;
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 115, 0.25);
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Кнопка отправки */
+.send {
+    background-color: #d4af73;
+    border: none;
+    color: #121212;
+    font-weight: 500;
+    padding: 0.75rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.send:hover {
+    background-color: #c19b5b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 115, 0.3);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .send {
+        width: 100%;
+    }
+}
+
+.card {
+    display: block;}
+
+.container.mt-5 h2{
+    
+    color: #c19b5b;
+}
