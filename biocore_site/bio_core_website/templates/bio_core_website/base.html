@@ -42,10 +42,10 @@
                         {% if user.is_authenticated %}
                         <a href="{% url 'bio_core_website:profile' %}">
                             {% if user.avatar %}
-                            <img src="{{ user.avatar.url }}" class="img-thumbnail rounded-circle shadow" width="45"
+                            <img src="{{ user.avatar.url }}" class="img-thumbnail rounded-circle shadow" width="60"
                                 height="60" alt="Текущий аватар" style="object-fit: cover;">
                             {% else %}
-                            <img src="/media/avatars/default.jpg" class="img-thumbnail rounded-circle shadow" width="45"
+                            <img src="/media/avatars/default.jpg" class="img-thumbnail rounded-circle shadow" width="60"
                                 height="60" alt="Аватар по умолчанию" style="object-fit: cover;">
                             {% endif %}
                         </a>

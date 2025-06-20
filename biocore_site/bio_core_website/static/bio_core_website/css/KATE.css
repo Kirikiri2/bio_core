@@ -49,6 +49,10 @@
     box-shadow: 0 6px 15px rgba(212, 175, 115, 0.3);
 }
 
+.img-fluid {
+    height: revert-layer;
+}
+
 /* Текст профиля */
 h4 {
     color: #ffffff;
