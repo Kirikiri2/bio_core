@@ -504,7 +504,7 @@
 /* Стили для карточек с графиками */
 .card.mb-4 {
     background-color: #ffffff;
-box-shadow: 0 12px 15px rgba(92, 86, 78, 0.2);
+    box-shadow: 0 12px 15px rgba(92, 86, 78, 0.2);
     border-radius: 6px;
     margin-bottom: 20px !important;
 }
@@ -570,5 +570,163 @@ box-shadow: 0 12px 15px rgba(92, 86, 78, 0.2);
 
     .list-group-item {
         padding: 10px 15px;
+    }
+}
+
+/* Рузультаты */
+/* Основные стили контейнера */
+.container.mt-5_result {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #fff;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+/* Заголовок страницы */
+.container.mt-5_result h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #c2a98c;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.container.mt-5_result h2:after {
+    content: "";
+    display: block;
+    width: 760px;
+    height: 3px;
+    background: #c2a98c;
+    margin-top: 15px;
+}
+
+/* Стили для алертов */
+.alert {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid;
+}
+
+.alert-warning_result {
+    background-color: rgba(194, 169, 140, 0.1);
+    border-color: #c2a98c;
+    color: #fff;
+}
+
+.alert-warning_result h4 {
+    color: #c2a98c;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.alert-danger_result {
+    background-color: rgba(255, 99, 132, 0.1);
+    border-color: #ff6384;
+    color: #fff;
+}
+
+.alert-danger_result h4 {
+    color: #ff6384;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.alert-success_result {
+    background-color: rgba(75, 192, 192, 0.1);
+    border-color: #4bc0c0;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Стили для списков */
+.alert ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.alert li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.alert li:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для ссылок */
+.alert-warning_result a {
+    color: #c2a98c !important;
+    font-weight: 600 !important;
+    transition: color 0.2s;
+}
+
+.alert-warning_result a:hover {
+    color: #d4b796 !important;
+    text-decoration: none !important;
+}
+
+/* Стили для иконки предупреждения */
+.fa-exclamation-triangle_result {
+    color: #ff6384;
+    margin-right: 5px;
+}
+
+/* Стили для блока кнопок */
+.button_res {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.bt_prof_consult_result {
+    background-color: #c2a98c;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.bt_prof_consult_result:hover {
+    background-color: #d4b796;
+    color: #000;
+    text-decoration: none;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .container.mt-5_result {
+        padding: 0 15px;
+    }
+
+    .container.mt-5_result h2 {
+        font-size: 1.5rem;
+    }
+
+    .button_res {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bt_prof_consult_result {
+        width: 100%;
     }
 }
