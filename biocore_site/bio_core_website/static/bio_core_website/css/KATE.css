@@ -555,3 +555,62 @@ form:hover {
 .card-title:hover {
     color: #e8c98c;
 }
+
+select {
+    word-wrap: normal;
+    background-color: #cecbc8;
+    border-radius:5px;
+}
+input{
+    word-wrap: normal;
+    background-color: #cecbc8;
+    
+    border-radius:5px;
+    
+}
+/* Стили для кастомной кнопки выбора файла */
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input-button {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #d4af73;
+    border: 1px solid #d4af73;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.file-input-button:hover {
+    background-color: #d4af73;
+    color: #121212;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 115, 0.3);
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-name-display {
+    display: block;
+    margin-top: 0.5rem;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    text-align: center;
+}

@@ -44,12 +44,15 @@
                                     </div>
                                     
                                     <div class="mb-3">
-                                        <label for="{{ form.avatar.id_for_label }}" class="btn btn-outline-primary w-100">
-                                            <i class="bi bi-upload me-2"></i>Выбрать новый аватар
-                                            {{ form.avatar }}
-                                        </label>
-                                        <div class="form-text">Рекомендуемый размер: 200×200px</div>
-                                    </div>
+    <div class="file-input-wrapper">
+        <button type="button" class="file-input-button">
+            <i class="bi bi-upload me-2"></i>Выбрать новый аватар
+        </button>
+        {{ form.avatar }}
+    </div>
+    <div id="file-name" class="file-name-display">Файл не выбран</div>
+    <div class="form-text">Рекомендуемый размер: 200×200px</div>
+</div>
                                     
                                     {% if user.avatar %}
                                     <div class="form-check form-switch mb-3">
