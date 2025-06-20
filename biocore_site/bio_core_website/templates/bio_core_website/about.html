@@ -4,12 +4,12 @@
 {% block title %}О компании | BioCore{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <h1 class="mb-4 text-center">О компании BioCore</h1>
+<div class="container_about ">
+    <h1 class="text-center">О компании BioCore</h1>
     
     <!-- Видео-блок -->
     <div class="video-container mb-5 text-center">
-        <video id="promoVideo" autoplay muted loop playsinline class="w-100 rounded shadow" style="max-width: 800px;">
+        <video id="promoVideo" autoplay muted loop playsinline class="w-100 rounded shadow" style="max-width: 1200px;">
             <source src="/media/promo_videos/лого%20biocore%20511_1.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
@@ -17,7 +17,7 @@
     
     <!-- Остальной контент страницы -->
     <div class=<div style="" class="row content-block">
-        <div style="font-size:20px;"class="col-md-6">
+        <div style="font-size:20px;"class="our_mission">
             <h2>Наша миссия</h2>
              <p>BioCore — это эксперт в мире биологически активных добавок. Мы помогаем людям делать осознанный выбор, предоставляя достоверную, научно обоснованную информацию о БАДах.</p>
     
@@ -30,7 +30,7 @@
     
     <p>Наша миссия — не просто информировать, а формировать культуру осознанного подхода к здоровью. Мы верим, что правильные знания о БАДах должны быть доступны каждому, а не только специалистам.</p>
         </div>
-        <div class="col-md-6">
+        <div class="our_value">
             <h2>Наши ценности</h2>
             <ul class="values-list">
                 <li>Анализируем состав и эффективность добавок</li>
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Автовоспроизведение запрещено:', error);
             // Показываем кнопку для ручного запуска
             const playButton = document.createElement('button');
-            playButton.className = 'btn btn-primary mt-3';
+            playButton.className = 'btn btn-primary_about ';
             playButton.textContent = 'Запустить видео';
             playButton.onclick = function() {
                 video.play();

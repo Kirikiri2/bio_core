@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="mb-4 text-center">{{ title }}</h1>
+    <h1 style=" color:white;" class="mb-4 text-center">{{ title }}</h1>
     
     <!-- Категории с элементами -->
     <div class="row">
@@ -23,9 +23,9 @@
                             {% if element.image %}
                             <img src="{{ element.image.url }}" class="card-img-top" alt="{{ element.name }}" style="height: 200px; object-fit: cover;">
                             {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ element.name }}</h5>
-                                <div class="card-text">
+                            <div class="card-body_catalog">
+                                <h5 class="card-title_cataloge">{{ element.name }}</h5>
+                                <div class="card-text_catalog">
                                     {% if element.manufacturers.all %}
                                     <p class="text-muted mb-2">
                                         <small>Производители: 
@@ -38,8 +38,8 @@
                                     <p>{{ element.description|truncatechars:100 }}</p>
                                 </div>
                             </div>
-                            <div class="card-footer bg-white border-0">
-                                <a href="{% url 'bio_core_website:element_detail' element.id %}" class="btn btn-primary">
+                            <div class="card-footer_catalog bg-white border-0">
+                                <a  style="text-decoration:none; color:white;" href="{% url 'bio_core_website:element_detail' element.id %}" class=  " btn-primary_catalog">
                                     Подробнее
                                 </a>
                             </div>
