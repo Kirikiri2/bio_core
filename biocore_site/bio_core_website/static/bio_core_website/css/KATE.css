@@ -1,0 +1,42 @@
+.container.mt-8 {
+
+    padding: 10px;
+    border-radius: 100px;
+    max-width: 200px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(242, 0, 0, 0.1);
+}
+
+.container.mt-8 h2 {
+    color: #000000;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.bg-dark {
+    --bs-bg-opacity: 0;
+    background-color: #000 !important;
+}
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: #c2a98c !important;
+}
+
+.bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: #faf8f8 !important;
+}
+
+.card-header bg-primary text-white {
+    --bs-bg-opacity: 1;
+    background-color: #000 !important;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #000 !important;
+}
