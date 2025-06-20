@@ -1,6 +1,8 @@
 {% extends "bio_core_website/base.html" %}
-{% load static %}
-
+{%load static%}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bio_core_website/css/style.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container mt-6">
     <div class="row g-4">

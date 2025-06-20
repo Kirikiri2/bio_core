@@ -1,5 +1,8 @@
 {% extends "bio_core_website/base.html" %}
-
+{%load static%}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bio_core_website/css/style.css' %}">
+{% endblock %}
 {% block title %}{{ element.name }} | BioCore{% endblock %}
 
 {% block content %}

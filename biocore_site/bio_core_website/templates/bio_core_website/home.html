@@ -1,7 +1,10 @@
 {% extends "bio_core_website/base.html" %}
 
 {% block title %}Главная страница | BioCore{% endblock %}
-{% load static %}
+{%load static%}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bio_core_website/css/style.css' %}">
+{% endblock %}
 {% block content %}
 <!-- Hero Section -->
 <div class="container mt-4 hero-section">
