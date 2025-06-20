@@ -332,3 +332,112 @@
         font-size: 1.5rem;
     }
 }
+
+/* ВХОД */
+/* Основные стили формы входа */
+.login-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #000;
+    border: 1px solid #c2a98c;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+/* Заголовок формы */
+.login-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c2a98c;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.login-title:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #c2a98c;
+    margin: 15px auto 0;
+}
+
+/* Стили формы */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form p {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    color: #c2a98c;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+.login-form input:focus {
+    border-color: #c2a98c;
+    outline: none;
+}
+
+/* Кнопка входа */
+.login-form button[name="submit"] {
+    background-color: #c2a98c;
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.login-form button[name="submit"]:hover {
+    background-color: #d4b796;
+}
+
+/* Сообщение об ошибке */
+.login-error {
+    color: #ff6b6b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 576px) {
+    .login-container {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .login-title {
+        font-size: 1.5rem;
+    }
+}
