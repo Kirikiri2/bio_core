@@ -3,6 +3,7 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'bio_core_website/css/KATE.css' %}?v=1">
 {% endblock %}
+
 {% block content %}
 <div class="container mt-8">
     <div class="row g-4">
@@ -52,7 +53,6 @@
                             <p><strong>Рост:</strong> {{ user.height|default:"Не указан" }} см</p>
                         </div>
                     </div>
-
                     <!-- Блок ИМТ -->
                     {% if bmi_data %}
                         <div class="card bg-secondary mt-4 text-dark">
