@@ -34,7 +34,7 @@
                                                  alt="Текущий аватар"
                                                  style="object-fit: cover;">
                                         {% else %}
-                                            <img src="/media/avatars/default.jpg"
+                                            <img id="avatar-preview" src="/media/avatars/default.jpg"
                                                  class="img-thumbnail rounded-circle shadow" 
                                                  width="200" 
                                                  height="200"
@@ -128,4 +128,43 @@
     </div>
 </div>
 
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Обработка выбора файла аватара
+    const avatarInput = document.getElementById('id_avatar');
+    const fileNameDisplay = document.getElementById('file-name');
+    const avatarPreview = document.getElementById('avatar-preview');
+    
+    if (avatarInput) {
+        avatarInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                // Отображаем имя файла
+                fileNameDisplay.textContent = this.files[0].name;
+                
+                // Предпросмотр изображения
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarPreview.src = e.target.result;
+                }
+                reader.readAsDataURL(this.files[0]);
+            } else {
+                fileNameDisplay.textContent = 'Файл не выбран';
+            }
+        });
+    }
+    
+    // Обработка переключателя удаления аватара
+    const deleteAvatarCheckbox = document.getElementById('{{ form.delete_avatar.id_for_label }}');
+    if (deleteAvatarCheckbox) {
+        deleteAvatarCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                avatarPreview.src = '/media/avatars/default.jpg';
+                fileNameDisplay.textContent = 'Аватар будет удален после сохранения';
+            }
+        });
+    }
+});
+</script>
 {% endblock %}

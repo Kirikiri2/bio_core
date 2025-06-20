@@ -272,6 +272,7 @@ p {
 .img-thumbnail {
     background-color: #1e1e1e;
     border: none;
+    height: revert-layer;
 }
 
 /* Поля формы */
