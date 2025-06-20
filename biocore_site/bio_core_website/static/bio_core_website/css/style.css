@@ -380,8 +380,13 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     padding-bottom: 15px;
-    border-bottom: 2px solid #c2a98c;
+
+
+
+
 }
+
+
 
 /* Подзаголовки разделов */
 h2 {
@@ -391,6 +396,8 @@ h2 {
     margin: 30px 0 15px;
     text-transform: uppercase;
 }
+
+
 
 h3 {
     font-weight: 600;
@@ -425,7 +432,7 @@ h3 {
 /* Стили для карточек */
 .card {
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
 }
@@ -543,12 +550,13 @@ hr {
 }
 
 .container.py-5 h1:after {
-    content: "";
-    display: block;
-    width: 100px;
-    height: 3px;
-    background: #c2a98c;
-    margin: 1rem auto 0;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
 }
 
 /* Стили категорий - новые */
@@ -560,7 +568,7 @@ hr {
     font-family: 'TT Travels Next Trl', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
-    color: #8f8d8d;
+    color: #c2a98c;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     display: flex;

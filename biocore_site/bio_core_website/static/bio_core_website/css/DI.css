@@ -19,14 +19,23 @@
     letter-spacing: 1px;
     position: relative;
 }
-
+.h1{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
+}
 .container_about h1:after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: #c2a98c;
-    margin: 20px auto 0;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
 }
 
 /* Стили для видео-контейнера */
@@ -239,12 +248,13 @@
 }
 
 .text-center_register:after {
-    content: "";
-    display: block;
-    width: 60px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
     height: 2px;
-    background: #c2a98c;
-    margin: 15px auto 0;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
 }
 
 /* Стили тела формы */
@@ -462,7 +472,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: #ffffff;
+    color: #c2a98c;
     text-transform: uppercase;
     position: relative;
     text-align: center;
@@ -470,12 +480,13 @@
 }
 
 .container.mt-5_history h2:after {
-    content: "";
-    display: block;
-    width: 1150px;
-    height: 3px;
-    background: #c2a98c;
-    margin-top: 15px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
 }
 
 /* Общий контейнер для всех элементов */
@@ -596,12 +607,13 @@
 }
 
 .container.mt-5_result h2:after {
-    content: "";
-    display: block;
-    width: 760px;
-    height: 3px;
-    background: #c2a98c;
-    margin-top: 15px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c2a98c, transparent);
 }
 
 /* Стили для алертов */
