@@ -21,6 +21,7 @@
     --bs-bg-opacity: 0;
     background-color: #000 !important;
 }
+
 .bg-success {
     --bs-bg-opacity: 1;
     background-color: #c2a98c !important;
