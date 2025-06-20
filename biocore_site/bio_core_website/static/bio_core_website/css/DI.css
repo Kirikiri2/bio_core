@@ -205,3 +205,130 @@
         padding: 20px 15px;
     }
 }
+
+/* РЕГИСТРАЦИЯ */
+/* Основные стили контейнера регистрации */
+.container_register {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0;
+}
+
+/* Стили карточки регистрации */
+.card_register {
+    background-color: #000;
+    border: 1px solid #c2a98c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header_register {
+    background-color: transparent;
+    padding: 25px 20px 0;
+    border-bottom: none;
+}
+
+.text-center_register {
+    color: #c2a98c;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+}
+
+.text-center_register:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #c2a98c;
+    margin: 15px auto 0;
+}
+
+/* Стили тела формы */
+.card-body_register {
+    padding: 20px;
+}
+
+/* Стили для формы и её элементов */
+.card-body_register form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-body_register p {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body_register label {
+    color: #c2a98c;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    order: -1;
+}
+
+.card-body_register input:not([type="checkbox"]):not([type="radio"]),
+.card-body_register select {
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-family: 'TT Travels Next Trl', sans-serif;
+}
+
+.card-body_register input:focus {
+    border-color: #c2a98c;
+    outline: none;
+}
+
+/* Стили для чекбоксов и радио-кнопок */
+.card-body_register input[type="checkbox"],
+.card-body_register input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #c2a98c;
+}
+
+/* Стили для кнопки отправки */
+.card-body_register .btn-primary {
+    background-color: #c2a98c;
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-family: 'TT Travels Next Trl', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Стили для ошибок валидации */
+.card-body_register .errorlist {
+    color: #881a1a;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 576px) {
+    .container_register {
+        padding: 0 15px;
+    }
+
+    .card_register {
+        border-radius: 6px;
+    }
+
+    .text-center_register {
+        font-size: 1.5rem;
+    }
+}
