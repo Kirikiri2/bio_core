@@ -228,21 +228,6 @@ def catalog_view(request):
         cache.set(cache_key, data, 60 * 60 * 12)  # Кэш на 12 часов
     
     return render(request, 'bio_core_website/catalog.html', data)
-def category_elements(request, category_id):
-    category = get_object_or_404(
-        Category.objects.prefetch_related(
-            Prefetch('elements',
-                   queryset=Element.objects.prefetch_related('manufacturers')
-                                         .select_related('category')
-            )
-        ).only('id', 'name', 'image'),
-        id=category_id
-    )
-    
-    return render(request, 'bio_core_website/category_elements.html', {
-        'category': category,
-        'title': f'Элементы категории: {category.name}'
-    })
 
 def element_detail(request, pk):
     element = get_object_or_404(
