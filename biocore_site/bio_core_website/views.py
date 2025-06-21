@@ -5,9 +5,12 @@ from .forms import ProfileEditForm, ConsultationForm, SearchForm
 from django.contrib import messages
 from django.db import transaction
 from django.db.models import Prefetch
-from .models import PromoVideo
+from .models import PromoVideo, Manufacturer
 from django.core.cache import cache 
 from django.views.decorators.cache import cache_page
+from .models import Category
+from django.db import transaction, models  # Добавлен импорт models
+from django.db.models import Prefetch, Count
 
 @login_required
 def consultation_view(request):
@@ -204,21 +207,52 @@ def element_detail(request, pk):
         'element': element
     })
 
-@cache_page(60*60)  # Кэш страницы на 1 час
+@cache_page(60 * 60)  # Кэширование на 1 час
 def catalog_view(request):
-    cache_key = 'catalog_data'
-    categories = cache.get(cache_key)
+    cache_key = 'full_catalog_data'
+    data = cache.get(cache_key)
     
-    if not categories:
-        categories = list(Category.objects.prefetch_related(
-            Prefetch('elements', queryset=Element.objects.only('id', 'name', 'image', 'category__name')))
-        .only('id', 'name', 'image'))
+    if not data:
+        categories = Category.objects.prefetch_related(
+            Prefetch('elements',
+                   queryset=Element.objects.select_related('category')
+                                         .prefetch_related('manufacturers')
+                                         .only('id', 'name', 'image', 'description', 'category__name')
+            )
+        ).annotate(element_count=Count('elements')).only('id', 'name', 'image')
         
-        cache.set(cache_key, categories, 60*60*24)  # Данные на 24 часа
+        data = {
+            'categories': categories,
+            'title': 'Полный каталог продукции'
+        }
+        cache.set(cache_key, data, 60 * 60 * 12)  # Кэш на 12 часов
     
-    return render(request, 'bio_core_website/catalog.html', {
-        'categories': categories,
-        'title': 'Каталог элементов'
+    return render(request, 'bio_core_website/catalog.html', data)
+def category_elements(request, category_id):
+    category = get_object_or_404(
+        Category.objects.prefetch_related(
+            Prefetch('elements',
+                   queryset=Element.objects.prefetch_related('manufacturers')
+                                         .select_related('category')
+            )
+        ).only('id', 'name', 'image'),
+        id=category_id
+    )
+    
+    return render(request, 'bio_core_website/category_elements.html', {
+        'category': category,
+        'title': f'Элементы категории: {category.name}'
+    })
+
+def element_detail(request, pk):
+    element = get_object_or_404(
+        Element.objects.select_related('category')
+                      .prefetch_related('manufacturers', 'vitamin_data'),
+        id=pk
+    )
+    return render(request, 'bio_core_website/element_detail.html', {
+        'element': element,
+        'title': element.name
     })
 
 def about_view(request):

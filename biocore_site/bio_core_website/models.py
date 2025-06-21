@@ -143,6 +143,11 @@ class UserBMI(models.Model):
         ordering = ['-date']
         get_latest_by = 'date'
 
+    def save(self, *args, **kwargs):
+        # Вычисляем BMI перед сохранением
+        self.bmi = self.calculate_bmi(float(self.weight), float(self.height))
+        self.category = self.get_bmi_category(float(self.bmi))
+        super().save(*args, **kwargs)
     @classmethod
     def calculate_bmi(cls, weight, height):
         height_m = height / 100
