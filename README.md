@@ -13,13 +13,19 @@ BioCore — это платформа, которая помогает поль�
 
 ⚠️ Платформа не продаёт препараты и не является медицинским сервисом — она носит рекомендательный характер.
 
----
-
 ## Идея проекта
 
 Проект решает проблему самостоятельного анализа медицинских показателей пользователями.  
 Вместо ручного поиска информации пользователь получает структурированные рекомендации на основе введённых данных.
 
+---
+## Экраны приложения. Примеры
+
+![imgExample/Screen1.png](imgExample/Screen1.png)
+![imgExample/Screen2.png](imgExample/Screen2.png)
+![imgExample/Screen3.png](imgExample/Screen3.png)
+![imgExample/Screen4.png](imgExample/Screen4.png)
+![imgExample/Screen5.png](imgExample/Screen5.png)
 ---
 
 ## Функционал
@@ -88,7 +94,7 @@ BioCore — это платформа, которая помогает поль�
 
 ## Структура проекта
 
-
+```
 biocore/
 ├── biocore_site/
 │ ├── bio_core_website/ # основное приложение
@@ -99,7 +105,7 @@ biocore/
 ├── venv/
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
